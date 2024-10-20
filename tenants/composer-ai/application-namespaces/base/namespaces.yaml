@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: composer-ai-app
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: composer-ai-llm
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: composer-ai-pipelines
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: composer-ai-vector-db
+---

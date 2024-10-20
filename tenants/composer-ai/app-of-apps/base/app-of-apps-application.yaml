@@ -16,7 +16,7 @@ spec:
     helm:
       parameters:
         - name: application.defaultNamespace
-          value: composer-ai
+          value: composer-ai-app
   project: default
   syncPolicy:
     automated:
