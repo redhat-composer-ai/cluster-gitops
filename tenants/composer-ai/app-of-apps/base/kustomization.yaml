@@ -3,3 +3,11 @@ kind: Kustomization
 
 resources:
   - app-of-apps-application.yaml
+
+patches:
+  # set the repo and branch for applications
+  - path: patch-app-of-apps.yaml
+    target:
+      kind: Application
+      group: argoproj.io
+      name: composer-ai-config

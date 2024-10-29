@@ -91,6 +91,8 @@ bootstrap_cluster(){
   fi
 
   check_branch $bootstrap_dir
+
+  update_cluster_domain
   
   echo "Apply overlay to override default instance"
   kustomize build "${base_dir}/${bootstrap_dir}" | oc apply -f -

@@ -215,7 +215,7 @@ check_branch(){
 
 update_branch(){
   if [ -z "$1" ]; then
-    echo "No cluster overlay supplied."
+    print_error "No cluster overlay supplied."
     exit 1
   else
     CLUSTER_OVERLAY=$1
@@ -230,6 +230,43 @@ update_branch(){
   yq ".[1].value = \"${GIT_BRANCH}\"" -i ${APP_PATCH_FILE}
 
   git add ${APP_PATCH_FILE}
-  git commit -m "automatic update to branch by bootstrap script"
+  git commit -m "Git Information: automatic update to branch by bootstrap script"
   git push origin ${GIT_BRANCH}
+}
+
+update_cluster_domain(){
+  if [ "$UPDATE_BASEDOMAIN" = false ]; then
+    return
+  elif [ -z BASE_DOMAIN ]; then
+    print_error "Cluster Base Domain is missing."
+    return
+  fi
+
+  echo "Updating Base Domain to ${BASE_DOMAIN}"
+
+  APP_PATCH_FILE="tenants/composer-ai/app-of-apps/base/patch-app-of-apps.yaml"
+
+  CURRNET_BASE_DOMAIN=$(yq -r ".[0].value" ${APP_PATCH_FILE})
+
+  if [[ ${CURRNET_BASE_DOMAIN} == ${BASE_DOMAIN} ]]; then
+    echo "Base domain is already set to ${BASE_DOMAIN}"
+    return
+  fi
+
+  yq ".[0].value = \"${BASE_DOMAIN}\"" -i ${APP_PATCH_FILE}
+
+  git add ${APP_PATCH_FILE}
+  git commit -m "Cluster Domain: automatic update to domain by bootstrap script"
+  git push origin ${GIT_BRANCH}
+}
+
+get_cluster_domain(){
+  # Step 1: Get the admin console URL
+  console_url=$(oc get route console -n openshift-console -o jsonpath='{.spec.host}')
+
+  # Step 2: Extract everything after (and including) 'apps'
+  console_url=$(echo $console_url | sed 's/.*\(apps.*\)/\1/')
+
+  # Return the base domain
+  echo $console_url
 }
