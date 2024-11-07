@@ -9,10 +9,11 @@ spec:
           - /var/run/argocd/argocd-cmp-server
         env:
           - name: SUB_DOMAIN
-            fromValue:
-              configMapKeyRef:
-                name: app-url
-                key: app-url
+            value: tests
+            # fromValue:
+            #   configMapKeyRef:
+            #     name: app-url
+            #     key: app-url
         image: 'quay.io/devfile/universal-developer-image:ubi8-latest'
         name: cmp
         resources: {}
