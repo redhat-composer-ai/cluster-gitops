@@ -7,13 +7,9 @@ spec:
     sidecarContainers:
       - command:
           - /var/run/argocd/argocd-cmp-server
-        env:
-          - name: SUB_DOMAIN
-            value: tests
-            # fromValue:
-            #   configMapKeyRef:
-            #     name: app-url
-            #     key: app-url
+        envFrom:
+          configMapRef:
+            name: app-url
         image: 'quay.io/devfile/universal-developer-image:ubi8-latest'
         name: cmp
         resources: {}
