@@ -8,8 +8,8 @@ spec:
       - command:
           - /var/run/argocd/argocd-cmp-server
         envFrom:
-          configMapRef:
-            name: app-url
+          - configMapRef:
+              name: app-url
         image: 'quay.io/devfile/universal-developer-image:ubi8-latest'
         name: cmp
         resources: {}
