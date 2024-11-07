@@ -4,18 +4,18 @@ kind: Component
 namespace: openshift-gitops
 
 resources:
-  - create-route-url-configmap-job.yaml
-  - create-route-url-configmap-rbac.yaml
+  # - create-route-url-configmap-job.yaml
+  # - create-route-url-configmap-rbac.yaml
   - kustomize-envvar-configmap.yaml
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#   disableNameSuffixHash: true
 
-configMapGenerator:
-  - name: create-route-url-configmap
-    namespace: openshift-gitops
-    files:
-      - create-route-url-configmap.sh
+# configMapGenerator:
+#   - name: create-route-url-configmap
+#     namespace: openshift-gitops
+#     files:
+#       - create-route-url-configmap.sh
 
 patches:
   - path: patch-envvar-sidecar.yaml
