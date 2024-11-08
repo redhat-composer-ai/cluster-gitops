@@ -9,7 +9,7 @@ spec:
           - /var/run/argocd/argocd-cmp-server
         envFrom:
           - configMapRef:
-              name: kustomize-env-vars
+              name: plugin-substitution-env-vars
         image: 'quay.io/devfile/universal-developer-image:ubi8-latest'
         name: cmp
         resources: {}

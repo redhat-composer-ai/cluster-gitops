@@ -1,1 +1,0 @@
-APP_URL=$(oc get ingresses.config/cluster -o jsonpath={.spec.domain})
