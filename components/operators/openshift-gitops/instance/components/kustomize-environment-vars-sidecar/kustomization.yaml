@@ -4,7 +4,7 @@ kind: Component
 namespace: openshift-gitops
 
 resources:
-  - ./create-route-rul-configmap-job/
+  - ./create-route-url-configmap-job/
   - kustomize-envvar-configmap.yaml
 
 patches:
