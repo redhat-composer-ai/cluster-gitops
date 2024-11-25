@@ -121,7 +121,7 @@ inject_secrets() {
     huggingface_token_access=$HF_TOKEN_ACCESS
   else
     while true; do
-      read -p "Please enter a HuggingFace access token: " huggingface_token_access
+      read -s -p "Please enter a HuggingFace access token: " huggingface_token_access
       if [[ $huggingface_token_access ]]; then
         break;
       else
