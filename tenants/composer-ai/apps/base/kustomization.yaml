@@ -5,13 +5,3 @@ namespace: composer-ai-gitops
 
 resources:
   - app-of-apps.yaml
-  - openshift-gitops-job-create-secrets-composer-ai.yaml
-
-patches:
-  - target:
-      kind: Job
-      name: create-secrets-composer-ai
-    patch: |
-      - op: replace
-        path: /metadata/namespace
-        value: openshift-gitops
