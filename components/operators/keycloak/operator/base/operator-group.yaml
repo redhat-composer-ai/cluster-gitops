@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: composer-ai-keycloak
+  namespace: composer-ai-keycloak
+spec:
+  targetNamespaces:
+    - composer-ai-keycloak

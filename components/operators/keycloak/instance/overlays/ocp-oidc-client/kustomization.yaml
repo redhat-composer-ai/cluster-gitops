@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - oidc-service-account.yaml
+  - oidc-role.yaml
+  - oidc-rolebinding.yaml
+  - realm.yaml
+  - token-secret.yaml
+  - oidc-update-job.yaml
+
+namespace: composer-ai-keycloak
+
+configMapGenerator:
+- name: oidc-job-cm
+  files:
+  - update-oidc.sh
+
+patches:
+# set the repo and branch for applications
+- path: patch-realm.yaml
+  target:
+    group: keycloak.org
+    version: v1alpha1
+    kind: KeycloakRealm
+- path: patch-sa.yaml
+  target:
+    version: v1
+    kind: ServiceAccount
+- path: patch-job.yaml
+  target:
+    group: batch
+    version: v1
+    kind: Job
