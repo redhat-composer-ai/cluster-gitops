@@ -9,3 +9,8 @@ patches:
     target:
       kind: ApplicationSet
       name: cluster-operators
+  - path: patch-cluster-config-app-of-apps.yaml
+    target:
+      kind: Application
+      name: cluster-config-app-of-apps
+
