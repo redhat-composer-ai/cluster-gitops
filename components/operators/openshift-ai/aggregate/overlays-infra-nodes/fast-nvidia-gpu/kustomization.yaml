@@ -8,3 +8,7 @@ patches:
   - path: patch-subscription-infra-nodes.yaml
     target:
       kind: Subscription
+  - path: patch-namespace-infra-nodes.yaml
+    target:
+      kind: Namespace
+      name: redhat-ods-applications
