@@ -1,4 +1,4 @@
-nameOverride: hello
+fullnameOverride: hello
 
 namespaces:
   - nameSuffix: gitops
