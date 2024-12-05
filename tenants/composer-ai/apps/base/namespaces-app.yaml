@@ -17,7 +17,7 @@ spec:
       targetRevision: "0.3.12"
       helm:
         parameters:
-          - name: nameOverride
+          - name: fullnameOverride
             value: composer-ai-2
         valueFiles:
           - $values/tenants/composer-ai/helm-chart-values/namespaces/values.yaml

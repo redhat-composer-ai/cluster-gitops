@@ -1,5 +1,3 @@
-fullnameOverride: hello
-
 namespaces:
   - nameSuffix: gitops
     role: gitops
