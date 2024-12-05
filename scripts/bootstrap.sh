@@ -116,6 +116,23 @@ bootstrap_cluster(){
   echo "https://${route}"
 }
 
+inject_secrets() {
+  if [[ $HF_TOKEN_ACCESS ]]; then
+    huggingface_token_access=$HF_TOKEN_ACCESS
+  else
+    while true; do
+      read -s -p "Please enter a HuggingFace access token: " huggingface_token_access
+      if [[ $huggingface_token_access ]]; then
+        break;
+      else
+        echo "You must type a HuggingFace access token. Try again."
+      fi
+    done
+  fi
+  oc delete secret rh-composer-ai -n $ARGO_NS --ignore-not-found
+  oc create secret generic rh-composer-ai -n $ARGO_NS --from-literal=composer-ai-apps-ai-keys-huggingface_apikey=$huggingface_token_access
+}
+
 # Verify CLI tooling
 setup_bin
 check_bin oc
@@ -128,4 +145,5 @@ check_oc_login
 
 # Execute bootstrap functions
 install_gitops
+inject_secrets
 bootstrap_cluster
