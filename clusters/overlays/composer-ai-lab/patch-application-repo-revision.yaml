@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/source/targetRevision
-  value: ${TARGET_REVISION}
+  value: multi-user
 - op: replace
   path: /spec/source/repoURL
   value: https://github.com/redhat-composer-ai/cluster-gitops.git
