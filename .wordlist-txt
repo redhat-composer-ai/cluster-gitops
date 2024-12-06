@@ -176,6 +176,7 @@ auth
 authorino
 autocompletion
 aws
+backend
 backticks
 baseUrls
 buildah
@@ -244,6 +245,7 @@ js
 json
 kafka
 kataconfig
+keycloak
 kiali
 knative
 kubeadmin
