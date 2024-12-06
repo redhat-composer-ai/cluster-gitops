@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: userlist
+spec:
+  generators:
+    - list:
+        elements:
+          - values:
+              user: user1
+          - values:
+              user: user2

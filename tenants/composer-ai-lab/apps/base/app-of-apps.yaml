@@ -1,0 +1,60 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: composer-ai-lab-app-of-apps
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+spec:
+  generators:
+    - list:
+        elements:
+          - values:
+              user: user1
+  template:
+    metadata:
+      name: 'composer-ai-{{values.user}}-config'
+      labels:
+        gitops.ownedBy: cluster-config
+        tenant: composer-ai
+    spec:
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: 'composer-ai-{{values.user}}-gitops'
+      sources:
+        - repoURL: 'https://github.com/redhat-composer-ai/appOfApps.git'
+          path: appOfApps
+          targetRevision: main
+          helm:
+            parameters:
+              - name: namespacePrefix
+                value: 'composer-ai-{{values.user}}-'
+              - name: clusterDomain
+                value: ${SUB_DOMAIN}
+            valueFiles:
+              - $values/tenants/composer-ai-lab/helm-chart-values/app-of-apps/values.yaml
+        - repoURL: 'https://github.com/redhat-composer-ai/cluster-gitops.git'
+          targetRevision: multi-user
+          ref: values
+      source:
+        path: appOfApps
+        repoURL: 'https://github.com/redhat-composer-ai/appOfApps.git'
+        targetRevision: main
+        helm:
+          parameters:
+            - name: namespacePrefix
+              value: 'composer-ai-{{values.user}}-'
+            - name: clusterDomain
+              value: ${SUB_DOMAIN}
+      project: default
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+      ignoreDifferences:
+        - group: argoproj.io
+          kind: Application
+          jsonPointers:
+            - /spec/source/repoURL
+            - /spec/source/targetRevision
