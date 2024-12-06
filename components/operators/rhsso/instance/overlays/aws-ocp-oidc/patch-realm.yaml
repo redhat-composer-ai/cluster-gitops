@@ -1,0 +1,8 @@
+- op: replace
+  path: /spec/realm/clients/3/redirectUris
+  value:
+    # - 'http://localhost:8080/*'
+    - 'https://quarkus-llm-router-composer-ai-rhsso.apps-crc.testing/*'
+- op: replace
+  path: /spec/realm/identityProviders/0/config/baseUrl
+  value: https://api.crc.testing:6443

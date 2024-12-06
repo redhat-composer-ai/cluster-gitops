@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+components:
+  - ../../components/ocp-oidc-client
+
+namespace: composer-ai-rhsso
+
+patches:
+- path: patch-realm.yaml
+  target:
+    group: keycloak.org
+    version: v1alpha1
+    kind: KeycloakRealm
+- path: patch-sa.yaml
+  target:
+    version: v1
+    kind: ServiceAccount
+- path: patch-job.yaml
+  target:
+    group: batch
+    version: v1
+    kind: Job

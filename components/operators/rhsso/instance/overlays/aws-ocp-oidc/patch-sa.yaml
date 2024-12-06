@@ -1,0 +1,3 @@
+- op: replace
+  path: "/metadata/annotations/serviceaccounts.openshift.io~1oauth-redirecturi.first"
+  value: "https://keycloak-composer-ai-rhsso.apps-crc.testing/auth/realms/openshift-ai/broker/openshift-v4/endpoint"

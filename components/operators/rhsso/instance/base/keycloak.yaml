@@ -1,0 +1,10 @@
+apiVersion: keycloak.org/v1alpha1
+kind: Keycloak
+metadata:
+  name: composer-ai-rhsso
+  labels:
+    app: composer-ai-rhsso
+spec:
+  externalAccess:
+    enabled: true
+  instances: 1

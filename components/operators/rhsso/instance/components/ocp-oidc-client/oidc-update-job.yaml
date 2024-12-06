@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: update-idp-credentials
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: update-idp
+        image: registry.redhat.io/openshift4/network-tools-rhel9:latest
+        command: ["/bin/sh", "-c", "/etc/scripts/update-oidc.sh"]
+        env:
+          - name: KEYCLOAK_URL
+            value: MY_KEYCLOAK_URL
+        volumeMounts:
+        - name: update-script
+          mountPath: /etc/scripts
+      serviceAccountName: openshift-oidc
+      volumes:
+        - name: update-script
+          configMap:
+            name: oidc-job-cm
+            defaultMode: 0550
