@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - ../../base
 
-namespace: composer-ai-keycloak
+namespace: composer-ai-rhsso

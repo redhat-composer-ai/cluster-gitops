@@ -73,6 +73,7 @@ Jupyter
 KServe
 Kafka
 Keycloak
+KeycloakRealm
 Kibana
 KieApp
 Koku
@@ -114,6 +115,7 @@ OperatorGroup
 PCI
 PV
 PolicyReport
+PostSync
 Prometheus
 Quarkus
 RBAC
@@ -175,6 +177,7 @@ authorino
 autocompletion
 aws
 backticks
+baseUrls
 buildah
 canada
 ceph
@@ -276,6 +279,7 @@ oc
 ocp
 ocs
 odf
+oidc
 olm
 openAPI
 opendatahub
@@ -336,6 +340,7 @@ triton
 truly
 txt
 un
+uris
 url
 vLLM
 vSphere

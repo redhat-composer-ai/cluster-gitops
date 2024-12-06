@@ -12,7 +12,7 @@ spec:
       containers:
       - name: update-idp
         image: registry.redhat.io/openshift4/network-tools-rhel9:latest
-        command: [ "/bin/sh", "-c", "/etc/scripts/update-oidc.sh"]
+        command: ["/bin/sh", "-c", "/etc/scripts/update-oidc.sh"]
         env:
           - name: KEYCLOAK_URL
             value: MY_KEYCLOAK_URL
@@ -23,5 +23,5 @@ spec:
       volumes:
         - name: update-script
           configMap:
-           name: oidc-job-cm
-           defaultMode: 0550
+            name: oidc-job-cm
+            defaultMode: 0550

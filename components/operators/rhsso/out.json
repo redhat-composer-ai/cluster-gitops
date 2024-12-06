@@ -1,0 +1,22 @@
+[
+    {
+        "alias": "openshift-v4",
+        "internalId": "712a8105-a9c5-4a5c-a051-b11cb66fe40a",
+        "providerId": "openshift-v4",
+        "enabled": true,
+        "updateProfileFirstLoginMode": "on",
+        "trustEmail": false,
+        "storeToken": false,
+        "addReadTokenRoleOnCreate": false,
+        "authenticateByDefault": false,
+        "linkOnly": false,
+        "firstBrokerLoginFlowAlias": "first broker login",
+        "config": {
+            "syncMode": "IMPORT",
+            "baseUrl": "https://api.crc.testing:6443",
+            "clientSecret": "**********",
+            "clientId": "system:serviceaccount:composer-ai-rhsso:openshift-oidc",
+            "useJwksUrl": "true"
+        }
+    }
+]

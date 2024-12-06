@@ -5,4 +5,4 @@ metadata:
     openshift.io/display-name: "Composer-AI Keycloak"
   labels:
     openshift.io/cluster-monitoring: 'true'
-  name: composer-ai-keycloak
+  name: composer-ai-rhsso

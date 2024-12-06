@@ -19,9 +19,9 @@ done
 
 echo "Getting the oidc secret"
 
-oc extract secret/openshift-oidc-secret --keys=token --to=/tmp -n composer-ai-keycloak $1>/dev/null
+oc extract secret/openshift-oidc-secret --keys=token --to=/tmp $1>/dev/null
 
-oc extract secret/credential-composer-ai-keycloak --to=/tmp -n composer-ai-keycloak $1>/dev/null
+oc extract secret/credential-composer-ai-rhsso --to=/tmp $1>/dev/null
 
 
 CLIENT_SECRET=$(cat /tmp/token)

@@ -4,7 +4,7 @@ metadata:
   labels:
     app: openshift
   name: openshift-realm
-  namespace: composer-ai-keycloak
+  namespace: composer-ai-rhsso
 spec:
   realm:
     id: openshift-ai
@@ -373,7 +373,7 @@ spec:
           syncMode: IMPORT
           baseUrl: 'OPENSHIFT_API_SERVER_CHANGE_ME'
           clientSecret: 'CHANGE_ME'
-          clientId: system:serviceaccount:composer-ai-keycloak:openshift-oidc
+          clientId: system:serviceaccount:composer-ai-rhsso:openshift-oidc
           useJwksUrl: 'true'
     authenticationFlows:
       - id: 7822f9e7-766e-4ed7-94a6-1293ac07bbfb
@@ -901,7 +901,6 @@ spec:
       profiles: []
     clientPolicies:
       policies: []
-
   instanceSelector:
     matchLabels:
-      app: composer-ai-keycloak
+      app: composer-ai-rhsso

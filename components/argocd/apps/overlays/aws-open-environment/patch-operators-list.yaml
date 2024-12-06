@@ -46,6 +46,11 @@ spec:
         values:
           name: openshift-servicemesh-operator
           path: components/operators/openshift-servicemesh/operator/overlays/stable
+      - cluster: local
+        url: https://kubernetes.default.svc
+        values:
+          name: composer-ai-rhsso
+          path: components/operators/rhsso/aggregate/overlays/aws
 
       # - cluster: local
       #   url: https://kubernetes.default.svc

@@ -3,22 +3,13 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - oidc-service-account.yaml
-  - oidc-role.yaml
-  - oidc-rolebinding.yaml
-  - realm.yaml
-  - token-secret.yaml
-  - oidc-update-job.yaml
 
-namespace: composer-ai-keycloak
+components:
+  - ../../components/ocp-oidc-client
 
-configMapGenerator:
-- name: oidc-job-cm
-  files:
-  - update-oidc.sh
+namespace: composer-ai-rhsso
 
 patches:
-# set the repo and branch for applications
 - path: patch-realm.yaml
   target:
     group: keycloak.org

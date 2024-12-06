@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: components/operators/keycloak/operator/overlays/stable
+    repoURL: https://github.com/redhat-composer-ai/cluster-gitops.git
+    targetRevision: keycloak
