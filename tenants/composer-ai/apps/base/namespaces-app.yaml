@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
-  name: composer-ai-2-namespaces
+  name: composer-ai-namespaces
   labels:
     tenant: composer-ai
 spec:
