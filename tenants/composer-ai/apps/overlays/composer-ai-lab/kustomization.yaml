@@ -3,3 +3,10 @@ kind: Kustomization
 
 resources:
   - ../../base
+
+patches:
+  - path: patch-values.yaml
+    target:
+      kind: Application
+      name: composer-ai-config
+      namespace: composer-ai-gitops
