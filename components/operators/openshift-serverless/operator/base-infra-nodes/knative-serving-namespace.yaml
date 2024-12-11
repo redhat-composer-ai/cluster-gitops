@@ -7,4 +7,3 @@ metadata:
       [{"operator": "Exists", "key":
       "node-role.kubernetes.io/infra"}]
   name: knative-serving
-

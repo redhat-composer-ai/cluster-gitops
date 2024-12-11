@@ -13,4 +13,3 @@ patches:
     target:
       kind: Application
       name: cluster-config-app-of-apps
-
