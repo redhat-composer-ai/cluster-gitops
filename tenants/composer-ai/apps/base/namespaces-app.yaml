@@ -24,7 +24,7 @@ spec:
         valueFiles:
           - $values/tenants/composer-ai/helm-chart-values/namespaces/values.yaml
     - repoURL: 'https://github.com/redhat-composer-ai/cluster-gitops.git'
-      targetRevision: multi-user
+      targetRevision: main
       ref: values
   syncPolicy:
     automated:

@@ -17,5 +17,5 @@ spec:
         valueFiles:
           - $values/tenants/composer-ai/helm-chart-values/app-of-apps/lab-values.yaml
     - repoURL: 'https://github.com/redhat-composer-ai/cluster-gitops.git'
-      targetRevision: multi-user
+      targetRevision: main
       ref: values
