@@ -40,7 +40,7 @@ spec:
         url: https://kubernetes.default.svc
         values:
           name: openshift-pipelines-operator
-          path: components/operators/openshift-pipelines/operator/overlays/latest
+          path: components/operators/openshift-pipelines/operator/overlays/pipelines-1.16
       - cluster: local
         url: https://kubernetes.default.svc
         values:
