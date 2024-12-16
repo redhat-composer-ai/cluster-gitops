@@ -14,6 +14,11 @@ spec:
       - cluster: local
         url: https://kubernetes.default.svc
         values:
+          name: elasticsearch-operator
+          path: components/operators/elasticsearch/operator/overlays-infra-nodes/stable
+      - cluster: local
+        url: https://kubernetes.default.svc
+        values:
           name: nvidia-gpu-operator
           path: components/operators/gpu-operator-certified/aggregate/overlays-infra-nodes/aws
       - cluster: local
@@ -51,9 +56,9 @@ spec:
       #   url: https://kubernetes.default.svc
       #   values:
       #     name: openshift-logging-operator
-      #     path: components/operators/openshift-logging/aggregate/overlays/default
+      #     path: components/operators/openshift-logging/aggregate/overlays-infra-nodes/default
       # - cluster: local
       #   url: https://kubernetes.default.svc
       #   values:
       #     name: web-terminal-operator
-      #     path: components/operators/web-terminal-operator/operator/overlays/fast
+      #     path: components/operators/web-terminal-operator/operator/overlays-infra-nodes/fast

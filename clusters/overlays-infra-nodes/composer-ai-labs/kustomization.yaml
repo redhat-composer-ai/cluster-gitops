@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- ../../overlays/rhoai-eus-2.8
+- ../../overlays/composer-ai-labs
 
 patches:
   - path: patch-operators-list.yaml
