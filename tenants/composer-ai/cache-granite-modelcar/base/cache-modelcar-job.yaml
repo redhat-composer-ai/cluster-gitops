@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cache-modelcar-image
+  namespace: composer-ai-apps
+spec:
+  selector: {}
+  template:
+    metadata:
+      name: cache-modelcar-image
+    spec:
+      containers:
+        - name: cache-modelcar-image
+          image: quay.io/redhat-ai-services/modelcar-catalog:granite-3.0-8b-instruct
+          command:
+            - ls
+          resources:
+            limits:
+              nvidia.com/gpu: '1'
+            requests:
+              nvidia.com/gpu: '1'
+      restartPolicy: Never
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
