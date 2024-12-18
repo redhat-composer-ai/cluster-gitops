@@ -1,0 +1,32 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: openshift-oidc-role
+rules:
+  - verbs:
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - secrets
+  - verbs:
+      - get
+      - patch
+    apiGroups:
+      - ''
+    resources:
+      - serviceaccounts
+
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: openshift-oidc-clusterrole
+rules:
+  - verbs:
+      - get
+    apiGroups:
+      - config.openshift.io
+    resources:
+      - dnses
+      - ingresses
