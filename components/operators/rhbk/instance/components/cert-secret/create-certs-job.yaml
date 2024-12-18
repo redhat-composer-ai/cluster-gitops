@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-tls-secrets
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: update-idp
+        image: registry.redhat.io/openshift4/network-tools-rhel9:latest
+        command: ["/bin/sh", "-c", "/etc/scripts/create-certs.sh"]
+        env:
+        - name: INGRESS_NAME
+          value: cluster
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        volumeMounts:
+        - name: secret-script
+          mountPath: /etc/scripts
+      serviceAccountName: secret-setup
+      volumes:
+        - name: secret-script
+          configMap:
+            name: secret-job-cm
+            defaultMode: 0550

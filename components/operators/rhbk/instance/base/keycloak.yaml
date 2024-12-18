@@ -1,0 +1,17 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: composer-ai-rhbk
+  labels:
+    app: composer-ai-rhbk
+spec:
+  hostname:
+    hostname: ''
+    strict: false
+  http:
+    tlsSecret: rhbk-tls-secret
+  features:
+    enabled:
+      - scripts
+  instances: 1
+

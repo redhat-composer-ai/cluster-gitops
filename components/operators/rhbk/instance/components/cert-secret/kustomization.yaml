@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - secret-service-account.yaml
+  - secret-role.yaml
+  - secret-rolebinding.yaml
+  - create-certs-job.yaml
+
+namespace: composer-ai-rhbk
+
+configMapGenerator:
+- name: secret-job-cm
+  files:
+  - create-certs.sh
