@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - oidc-service-account.yaml
+  - oidc-role.yaml
+  - oidc-rolebinding.yaml
+  - realm.yaml
+  - token-secret.yaml
+  - oidc-update-job.yaml
+
+namespace: composer-ai-rhsso
+
+configMapGenerator:
+- name: oidc-job-cm
+  files:
+  - update-oidc.sh
