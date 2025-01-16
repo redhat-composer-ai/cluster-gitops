@@ -4,5 +4,8 @@ kind: Component
 resources:
   - postgres-service.yaml
   - postgres-ss.yaml
-
+  - postgres-db-secret.yaml
 namespace: composer-ai-rhbk
+
+patches:
+  - path: keycloak-patch.yaml

@@ -21,14 +21,25 @@ spec:
             - mountPath: /data
               name: cache-volume
           env:
-            - name: POSTGRES_USER
-              value: testuser
-            - name: POSTGRES_PASSWORD
-              value: testpassword
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: username
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: password
             - name: PGDATA
               value: /data/pgdata
-            - name: POSTGRES_DB
+            - name: POSTGRESQL_DATABASE
               value: keycloak
-      volumes:
-        - name: cache-volume
-          emptyDir: {}
+  volumeClaimTemplates:
+  - metadata:
+      name: cache-volume
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 1Gi

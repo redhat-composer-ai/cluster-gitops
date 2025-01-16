@@ -7,3 +7,4 @@ resources:
 components:
   - ../../components/cert-secret
   - ../../components/ocp-oidc-client
+  - ../../components/postgres
