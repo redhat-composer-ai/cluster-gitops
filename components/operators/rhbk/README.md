@@ -34,7 +34,7 @@ oc apply -k rhsso/aggregate/overlays/<overlay-name>
 
 #### Oidc Client Component
 
-This component uses a `Job` in create components for Keycloak to integrate with OpenShift's OIDC endpoints.  
+This component uses a `Job` in create components for Keycloak to integrate with OpenShift OIDC endpoints.  
 
 The following items are created:
 * `ServiceAccount` `openshift-oidc` - A service account used as an oidc provider.  This allows Keycloak to use OpenShift as an IDP.  One or more annotations for redirect uris must correctly point back to Keycloak. See patch-sa.yaml for example substitutions. See [Service accounts as OAuth clients](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/authentication_and_authorization/using-service-accounts-as-oauth-client#service-accounts-as-oauth-clients_using-service-accounts-as-oauth-client) for more details.  
@@ -49,4 +49,4 @@ NOTE: The job sets the `backend-service` client redirectUris to '*'.  This shoul
 
 The Red Hat Build of Keycloak requires providing a Postgresql instance if persistence is required.  This component creates secrets for the database credentials, creates a Postgres StatefulSet and Service, and patches the Keycloak CR to connect. 
 
-NOTE: Do not store important credentials for databases in Secrets in a non-poc environment.
+NOTE: Do not store important credentials for databases in Secrets in a non-proof of concept environment.

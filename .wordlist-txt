@@ -116,6 +116,7 @@ PCI
 PV
 PolicyReport
 PostSync
+Postgresql
 Prometheus
 Quarkus
 RBAC
@@ -140,6 +141,7 @@ Skupper
 SonarQube
 SpringBoot
 Stackrox
+StatefulSet
 StorageClass
 StorageCluster
 StorageSystem

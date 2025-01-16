@@ -39,7 +39,7 @@ spec:
   - metadata:
       name: cache-volume
     spec:
-      accessModes: [ "ReadWriteMany" ]
+      accessModes: ["ReadWriteMany"]
       resources:
         requests:
           storage: 1Gi

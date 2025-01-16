@@ -14,4 +14,3 @@ spec:
     enabled:
       - scripts
   instances: 1
-
