@@ -74,6 +74,7 @@ Jupyter
 KServe
 Kafka
 Keycloak
+KeycloakRealm
 Kibana
 KieApp
 Koku
@@ -117,6 +118,8 @@ OperatorGroup
 PCI
 PV
 PolicyReport
+PostSync
+Postgresql
 Prometheus
 Quarkus
 RBAC
@@ -142,6 +145,7 @@ Skupper
 SonarQube
 SpringBoot
 Stackrox
+StatefulSet
 StorageClass
 StorageCluster
 StorageSystem
@@ -180,7 +184,9 @@ auth
 authorino
 autocompletion
 aws
+backend
 backticks
+baseUrls
 buildah
 canada
 ceph
@@ -247,6 +253,7 @@ js
 json
 kafka
 kataconfig
+keycloak
 kiali
 knative
 kubeadmin
@@ -283,6 +290,7 @@ oc
 ocp
 ocs
 odf
+oidc
 olm
 openAPI
 opendatahub
@@ -303,6 +311,7 @@ pvc
 rbac
 rebase
 redhat
+redirectUris
 redistributions
 repo
 repo's
@@ -347,6 +356,7 @@ truly
 trustyai
 txt
 un
+uris
 url
 vLLM
 vSphere
