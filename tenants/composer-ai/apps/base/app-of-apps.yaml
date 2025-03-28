@@ -12,7 +12,7 @@ spec:
   sources:
     - repoURL: https://github.com/redhat-composer-ai/appOfApps.git
       path: appOfApps
-      targetRevision: main
+      targetRevision: ""
       helm:
         parameters:
           - name: namespacePrefix
