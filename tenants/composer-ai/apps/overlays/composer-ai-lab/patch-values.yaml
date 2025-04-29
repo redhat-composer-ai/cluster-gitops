@@ -7,7 +7,7 @@ spec:
   sources:
     - repoURL: https://github.com/redhat-composer-ai/appOfApps.git
       path: appOfApps
-      targetRevision: main
+      targetRevision: v0.2.3
       helm:
         parameters:
           - name: namespacePrefix
@@ -17,5 +17,5 @@ spec:
         valueFiles:
           - $values/appOfApps/values-lab.yaml
     - repoURL: 'https://github.com/redhat-composer-ai/appOfApps.git'
-      targetRevision: main
+      targetRevision: v0.2.3
       ref: values
